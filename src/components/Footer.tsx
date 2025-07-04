@@ -1,9 +1,6 @@
-
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer className="bg-gorila-primary text-white">
+  return <footer className="bg-gorila-primary text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Contact Info */}
@@ -12,11 +9,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <MapPin size={18} className="text-gorila-yellow" />
-                <span>Rua dos Atletas, 123 - Centro</span>
+                <span>Rua: Leopoldina N:12 - Várzea Grande - MT</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={18} className="text-gorila-yellow" />
-                <span>(11) 9999-9999</span>
+                <span>(65) 9.9914-3831</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={18} className="text-gorila-yellow" />
@@ -43,10 +40,7 @@ const Footer = () => {
           {/* About */}
           <div>
             <h3 className="text-xl font-bold mb-4 text-gorila-yellow">Gorila Rise</h3>
-            <p className="text-gray-300 leading-relaxed">
-              Mais que uma academia, somos uma comunidade dedicada a transformar vidas através do esporte. 
-              Junte-se ao bando e mantenha-se forte!
-            </p>
+            <p className="text-gray-300 leading-relaxed">Mantenha-se forte!</p>
           </div>
         </div>
 
@@ -56,8 +50,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

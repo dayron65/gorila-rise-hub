@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -6,12 +5,9 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Trophy, Users, Dumbbell, Star, ShoppingBag, Gift, Building } from 'lucide-react';
-
 const Index = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       <Header isLoggedIn={isLoggedIn} onLogout={() => setIsLoggedIn(false)} />
       
       {/* Hero Section */}
@@ -29,10 +25,7 @@ const Index = () => {
                 Mantenha-se forte
               </p>
             </div>
-            <p className="text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-              Transforme seu corpo, fortaleça sua mente e junte-se ao nosso bando. 
-              Aqui você encontra tudo para alcançar seus objetivos esportivos.
-            </p>
+            <p className="text-xl mb-8 max-w-2xl mx-auto leading-relaxed">Entre para o Coletivo</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/cadastro">
                 <Button className="bg-gorila-yellow text-gorila-primary hover:bg-yellow-400 font-bold text-lg px-8 py-3">
@@ -54,12 +47,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-gorila-primary mb-8">Nossa História</h2>
-            <p className="text-lg leading-relaxed text-gray-700 mb-8">
-              O Esporte Clube Gorila Rise nasceu da paixão pelo esporte e da vontade de criar uma 
-              comunidade forte e unida. Desde nossa fundação, temos o compromisso de oferecer não 
-              apenas um espaço para treinar, mas um ambiente onde cada atleta pode crescer, evoluir 
-              e alcançar sua melhor versão.
-            </p>
+            <p className="text-lg leading-relaxed text-gray-700 mb-8">Nossa história começa em 2018 com o Estúdio Gorila Rise e em seu coração o sonho social: o Projeto Rise Kids. Hoje, essa semente transformou-se na Associação Esportiva e Cultural Gorila Rise - uma evolução que amplia nosso compromisso com a comunidade.
+
+
+Unimos esporte, cultura e educação para promover inclusão, cidadania e desenvolvimento humano, criando oportunidades que transformam realidades.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gorila-yellow rounded-full flex items-center justify-center mx-auto mb-4">
@@ -73,7 +64,7 @@ const Index = () => {
                   <Users className="text-gorila-primary" size={32} />
                 </div>
                 <h3 className="text-xl font-bold text-gorila-primary mb-2">Comunidade</h3>
-                <p className="text-gray-600">Um bando unido em busca dos mesmos objetivos</p>
+                <p className="text-gray-600">Um coletivo unido em busca dos mesmos objetivos</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gorila-yellow rounded-full flex items-center justify-center mx-auto mb-4">
@@ -100,9 +91,7 @@ const Index = () => {
                   <ShoppingBag className="text-gorila-primary" size={32} />
                 </div>
                 <CardTitle className="text-gorila-primary">Loja</CardTitle>
-                <CardDescription>
-                  Produtos oficiais, suplementos e equipamentos esportivos
-                </CardDescription>
+                <CardDescription>Produtos oficiais, suplementos, equipamentos esportivos e workshopp</CardDescription>
               </CardHeader>
               <CardContent className="text-center">
                 <Link to="/loja">
@@ -170,8 +159,6 @@ const Index = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
