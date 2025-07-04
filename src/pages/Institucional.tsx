@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Trophy, Users, Heart, FileText, Leaf, Target, Dumbbell, Medal, Music, Palette } from 'lucide-react';
+import { Trophy, Users, Heart, FileText, Leaf, Target, Dumbbell, Medal, Music, Palette, Zap } from 'lucide-react';
 
 const Institucional = () => {
   const esportes = [
@@ -20,6 +20,11 @@ const Institucional = () => {
       nome: 'Boxe',
       icon: Medal,
       descricao: 'Ring profissional com equipamentos de segurança'
+    },
+    {
+      nome: 'Cheers',
+      icon: Heart,
+      descricao: 'Modalidade de torcida organizada com coreografias'
     },
     {
       nome: 'Flag Futebol',
@@ -58,6 +63,11 @@ const Institucional = () => {
     icon: Heart,
     descricao: 'Projetos comunitários e ações sociais',
     cor: 'bg-pink-100 text-pink-600'
+  }, {
+    nome: 'Ponto de Fusão',
+    icon: Zap,
+    descricao: 'Integração entre modalidades esportivas e culturais',
+    cor: 'bg-orange-100 text-orange-600'
   }];
 
   const valores = [{
