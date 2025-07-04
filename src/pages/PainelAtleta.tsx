@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -6,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import TimerSystem from '@/components/TimerSystem';
 import { 
   User, 
   FileText, 
@@ -177,7 +177,7 @@ const PainelAtleta = () => {
 
                 <Card>
                   <CardHeader>
-                    <CardTitle>Relógio e Cronômetro</CardTitle>
+                    <CardTitle>Relógio Atual</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="text-center">
@@ -192,12 +192,6 @@ const PainelAtleta = () => {
                           day: 'numeric' 
                         })}
                       </div>
-                      <Button className="bg-gorila-yellow text-gorila-primary hover:bg-yellow-400 mr-4">
-                        Iniciar Cronômetro
-                      </Button>
-                      <Button variant="outline">
-                        Timer de Descanso
-                      </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -266,29 +260,7 @@ const PainelAtleta = () => {
               </TabsContent>
 
               <TabsContent value="cronometro" className="space-y-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-center">Cronômetro de Treino</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-center">
-                      <div className="text-6xl font-mono font-bold text-gorila-primary mb-8">
-                        00:00:00
-                      </div>
-                      <div className="space-x-4">
-                        <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3">
-                          Iniciar
-                        </Button>
-                        <Button variant="outline" className="px-8 py-3">
-                          Pausar
-                        </Button>
-                        <Button variant="destructive" className="px-8 py-3">
-                          Parar
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <TimerSystem />
               </TabsContent>
             </Tabs>
           </div>
