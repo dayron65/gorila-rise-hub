@@ -3,24 +3,46 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Trophy, Users, Heart, FileText, Leaf, Target, Dumbbell, Medal, Music, Palette } from 'lucide-react';
+
 const Institucional = () => {
-  const esportes = [{
-    nome: 'Musculação',
-    icon: Dumbbell,
-    descricao: 'Treinamento personalizado com equipamentos modernos'
-  }, {
-    nome: 'Crossfit',
-    icon: Target,
-    descricao: 'Treinos funcionais de alta intensidade'
-  }, {
-    nome: 'Natação',
-    icon: Trophy,
-    descricao: 'Piscina semiolímpica para todos os níveis'
-  }, {
-    nome: 'Artes Marciais',
-    icon: Medal,
-    descricao: 'Judô, Karatê e Muay Thai'
-  }];
+  const esportes = [
+    {
+      nome: 'Atletismo',
+      icon: Target,
+      descricao: 'Corridas, saltos e arremessos em pista oficial'
+    },
+    {
+      nome: 'Basquete',
+      icon: Trophy,
+      descricao: 'Quadra oficial para treinos e competições'
+    },
+    {
+      nome: 'Boxe',
+      icon: Medal,
+      descricao: 'Ring profissional com equipamentos de segurança'
+    },
+    {
+      nome: 'Flag Futebol',
+      icon: Target,
+      descricao: 'Modalidade sem contato com foco na estratégia'
+    },
+    {
+      nome: 'Futebol',
+      icon: Trophy,
+      descricao: 'Campo oficial para todas as categorias'
+    },
+    {
+      nome: 'Levantamento de Peso Olímpico',
+      icon: Dumbbell,
+      descricao: 'Plataforma oficial com barras e anilhas olímpicas'
+    },
+    {
+      nome: 'Natação',
+      icon: Trophy,
+      descricao: 'Piscina semiolímpica para todos os níveis'
+    }
+  ];
+
   const projetos = [{
     nome: 'Música na Academia',
     icon: Music,
@@ -37,6 +59,7 @@ const Institucional = () => {
     descricao: 'Projetos comunitários e ações sociais',
     cor: 'bg-pink-100 text-pink-600'
   }];
+
   const valores = [{
     titulo: 'Transparência',
     descricao: 'Prestação de contas clara e acessível a todos os membros',
@@ -50,7 +73,9 @@ const Institucional = () => {
     descricao: 'Esporte acessível para todas as idades e classes sociais',
     icon: Users
   }];
-  return <div className="min-h-screen bg-white">
+
+  return (
+    <div className="min-h-screen bg-white">
       <Header />
       
       <div className="container mx-auto px-4 py-8">
@@ -72,8 +97,9 @@ const Institucional = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {esportes.map((esporte, index) => <Card key={index} className="hover:shadow-lg transition-shadow">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {esportes.map((esporte, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
                   <div className="w-16 h-16 bg-gorila-yellow rounded-full flex items-center justify-center mx-auto mb-4">
                     <esporte.icon className="text-gorila-primary" size={32} />
@@ -83,7 +109,8 @@ const Institucional = () => {
                 <CardContent className="text-center">
                   <p className="text-sm text-gray-600">{esporte.descricao}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </section>
 
@@ -230,6 +257,8 @@ const Institucional = () => {
       </div>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Institucional;
