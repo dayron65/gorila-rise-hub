@@ -1,70 +1,56 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Trophy, 
-  Users, 
-  Heart, 
-  FileText, 
-  Leaf, 
-  Target,
-  Dumbbell,
-  Medal,
-  Music,
-  Palette
-} from 'lucide-react';
-
+import { Trophy, Users, Heart, FileText, Leaf, Target, Dumbbell, Medal, Music, Palette } from 'lucide-react';
 const Institucional = () => {
-  const esportes = [
-    { nome: 'Musculação', icon: Dumbbell, descricao: 'Treinamento personalizado com equipamentos modernos' },
-    { nome: 'Crossfit', icon: Target, descricao: 'Treinos funcionais de alta intensidade' },
-    { nome: 'Natação', icon: Trophy, descricao: 'Piscina semiolímpica para todos os níveis' },
-    { nome: 'Artes Marciais', icon: Medal, descricao: 'Judô, Karatê e Muay Thai' }
-  ];
-
-  const projetos = [
-    {
-      nome: 'Música na Academia',
-      icon: Music,
-      descricao: 'Aulas de instrumentos musicais para membros',
-      cor: 'bg-blue-100 text-blue-600'
-    },
-    {
-      nome: 'Arte e Esporte',
-      icon: Palette,
-      descricao: 'Workshops de arte para desenvolvimento criativo',
-      cor: 'bg-purple-100 text-purple-600'
-    },
-    {
-      nome: 'Esporte Social',
-      icon: Heart,
-      descricao: 'Projetos comunitários e ações sociais',
-      cor: 'bg-pink-100 text-pink-600'
-    }
-  ];
-
-  const valores = [
-    {
-      titulo: 'Transparência',
-      descricao: 'Prestação de contas clara e acessível a todos os membros',
-      icon: FileText
-    },
-    {
-      titulo: 'Sustentabilidade',
-      descricao: 'Práticas ecológicas e responsabilidade ambiental',
-      icon: Leaf
-    },
-    {
-      titulo: 'Inclusão',
-      descricao: 'Esporte acessível para todas as idades e classes sociais',
-      icon: Users
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-white">
+  const esportes = [{
+    nome: 'Musculação',
+    icon: Dumbbell,
+    descricao: 'Treinamento personalizado com equipamentos modernos'
+  }, {
+    nome: 'Crossfit',
+    icon: Target,
+    descricao: 'Treinos funcionais de alta intensidade'
+  }, {
+    nome: 'Natação',
+    icon: Trophy,
+    descricao: 'Piscina semiolímpica para todos os níveis'
+  }, {
+    nome: 'Artes Marciais',
+    icon: Medal,
+    descricao: 'Judô, Karatê e Muay Thai'
+  }];
+  const projetos = [{
+    nome: 'Música na Academia',
+    icon: Music,
+    descricao: 'Aulas de instrumentos musicais para membros',
+    cor: 'bg-blue-100 text-blue-600'
+  }, {
+    nome: 'Arte e Esporte',
+    icon: Palette,
+    descricao: 'Workshops de arte para desenvolvimento criativo',
+    cor: 'bg-purple-100 text-purple-600'
+  }, {
+    nome: 'Esporte Social',
+    icon: Heart,
+    descricao: 'Projetos comunitários e ações sociais',
+    cor: 'bg-pink-100 text-pink-600'
+  }];
+  const valores = [{
+    titulo: 'Transparência',
+    descricao: 'Prestação de contas clara e acessível a todos os membros',
+    icon: FileText
+  }, {
+    titulo: 'Sustentabilidade',
+    descricao: 'Práticas ecológicas e responsabilidade ambiental',
+    icon: Leaf
+  }, {
+    titulo: 'Inclusão',
+    descricao: 'Esporte acessível para todas as idades e classes sociais',
+    icon: Users
+  }];
+  return <div className="min-h-screen bg-white">
       <Header />
       
       <div className="container mx-auto px-4 py-8">
@@ -80,17 +66,14 @@ const Institucional = () => {
         {/* Esportes Oferecidos */}
         <section className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gorila-primary mb-4">
-              Esportes Oferecidos
-            </h2>
+            <h2 className="text-3xl font-bold text-gorila-primary mb-4">Esportes Olímpicos</h2>
             <p className="text-lg text-gray-600">
               Modalidades para todos os gostos e objetivos
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {esportes.map((esporte, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+            {esportes.map((esporte, index) => <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
                   <div className="w-16 h-16 bg-gorila-yellow rounded-full flex items-center justify-center mx-auto mb-4">
                     <esporte.icon className="text-gorila-primary" size={32} />
@@ -100,8 +83,7 @@ const Institucional = () => {
                 <CardContent className="text-center">
                   <p className="text-sm text-gray-600">{esporte.descricao}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </section>
 
@@ -117,8 +99,7 @@ const Institucional = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {projetos.map((projeto, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+            {projetos.map((projeto, index) => <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
                   <div className={`w-16 h-16 ${projeto.cor} rounded-full flex items-center justify-center mx-auto mb-4`}>
                     <projeto.icon size={32} />
@@ -128,8 +109,7 @@ const Institucional = () => {
                 <CardContent className="text-center">
                   <p className="text-gray-600">{projeto.descricao}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </section>
 
@@ -198,8 +178,7 @@ const Institucional = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {valores.map((valor, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+            {valores.map((valor, index) => <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
                   <div className="w-16 h-16 bg-gorila-yellow rounded-full flex items-center justify-center mx-auto mb-4">
                     <valor.icon className="text-gorila-primary" size={32} />
@@ -209,8 +188,7 @@ const Institucional = () => {
                 <CardContent className="text-center">
                   <p className="text-gray-600">{valor.descricao}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </section>
 
@@ -252,8 +230,6 @@ const Institucional = () => {
       </div>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Institucional;
