@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Stopwatch from './Stopwatch';
 import CountdownTimer from './CountdownTimer';
-import IntervalTimer from './IntervalTimer';
+import AdvancedIntervalTimer from './AdvancedIntervalTimer';
 
 const TimerSystem = () => {
   return (
@@ -28,7 +28,7 @@ const TimerSystem = () => {
           </TabsContent>
 
           <TabsContent value="interval" className="space-y-4">
-            <IntervalTimer />
+            <AdvancedIntervalTimer />
           </TabsContent>
         </Tabs>
       </CardContent>
