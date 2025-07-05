@@ -25,7 +25,7 @@ const Index = () => {
                 Mantenha-se forte
               </p>
             </div>
-            <p className="text-xl mb-8 max-w-2xl mx-auto leading-relaxed">Entre para o Coletivo</p>
+            <p className="text-xl mb-8 max-w-2xl mx-auto leading-relaxed">Entre para o Bando</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/cadastro">
                 <Button className="bg-gorila-yellow text-gorila-primary hover:bg-yellow-400 font-bold text-lg px-8 py-3">
