@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Trophy, Users, Heart, FileText, Leaf, Target, Dumbbell, Medal, Music, Palette, Zap } from 'lucide-react';
+import { Trophy, Users, Heart, FileText, Leaf, Target, Dumbbell, Medal, Zap } from 'lucide-react';
 
 const Institucional = () => {
   const esportes = [
@@ -49,24 +49,9 @@ const Institucional = () => {
   ];
 
   const projetos = [{
-    nome: 'Música na Academia',
-    icon: Music,
-    descricao: 'Aulas de instrumentos musicais para membros',
-    cor: 'bg-blue-100 text-blue-600'
-  }, {
-    nome: 'Arte e Esporte',
-    icon: Palette,
-    descricao: 'Workshops de arte para desenvolvimento criativo',
-    cor: 'bg-purple-100 text-purple-600'
-  }, {
-    nome: 'Esporte Social',
-    icon: Heart,
-    descricao: 'Projetos comunitários e ações sociais',
-    cor: 'bg-pink-100 text-pink-600'
-  }, {
     nome: 'Ponto de Fusão',
     icon: Zap,
-    descricao: 'Integração entre modalidades esportivas e culturais',
+    descricao: 'Promover a cultura hip-hop como ferramenta de transformação social, integrando seus quatro elementos fundamentais (DJi, MC, Breaking e Graffiti) para engajar jovens em atividades artísticas, educativas e comunitárias, reforçando identidade, crítica social e expressão criativa.',
     cor: 'bg-orange-100 text-orange-600'
   }];
 
@@ -135,7 +120,7 @@ const Institucional = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
             {projetos.map((projeto, index) => <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
                   <div className={`w-16 h-16 ${projeto.cor} rounded-full flex items-center justify-center mx-auto mb-4`}>
