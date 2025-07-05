@@ -1,10 +1,12 @@
 
 import { useState, useEffect, useRef } from 'react';
+import { useTimerSound } from './useTimerSound';
 
 export const useStopwatch = () => {
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const { playStartSound, playEndSound } = useTimerSound();
 
   useEffect(() => {
     if (isRunning) {
@@ -19,8 +21,16 @@ export const useStopwatch = () => {
     };
   }, [isRunning]);
 
-  const start = () => setIsRunning(true);
-  const pause = () => setIsRunning(false);
+  const start = () => {
+    setIsRunning(true);
+    playStartSound();
+  };
+
+  const pause = () => {
+    setIsRunning(false);
+    playEndSound();
+  };
+
   const reset = () => {
     setIsRunning(false);
     setTime(0);

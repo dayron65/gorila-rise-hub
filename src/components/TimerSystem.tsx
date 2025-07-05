@@ -4,12 +4,16 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Stopwatch from './Stopwatch';
 import CountdownTimer from './CountdownTimer';
 import AdvancedIntervalTimer from './AdvancedIntervalTimer';
+import GorilaRiseLogo from './GorilaRiseLogo';
 
 const TimerSystem = () => {
   return (
     <Card className="w-full">
-      <CardHeader>
-        <CardTitle className="text-center">Sistema de Cronometragem</CardTitle>
+      <CardHeader className="text-center">
+        <div className="flex flex-col items-center space-y-4">
+          <GorilaRiseLogo size="lg" />
+          <CardTitle className="text-gorila-primary">Sistema de Cronometragem</CardTitle>
+        </div>
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="stopwatch" className="w-full">

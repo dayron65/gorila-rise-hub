@@ -1,5 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
+import { useTimerSound } from './useTimerSound';
 
 export interface IntervalConfig {
   id: string;
@@ -22,6 +23,7 @@ export const useAdvancedIntervalTimer = () => {
   const [currentRound, setCurrentRound] = useState(1);
   const [currentInterval, setCurrentInterval] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const { playStartSound, playEndSound, playPhaseChangeSound } = useTimerSound();
 
   useEffect(() => {
     if (isRunning && currentTime > 0) {
@@ -44,10 +46,12 @@ export const useAdvancedIntervalTimer = () => {
   const handlePhaseTransition = () => {
     if (currentPhase === 'start') {
       setCurrentPhase('tempoA');
+      playPhaseChangeSound();
       const tempoA = intervalos[currentInterval].tempoA;
       return tempoA.minutos * 60 + tempoA.segundos;
     } else if (currentPhase === 'tempoA') {
       setCurrentPhase('tempoB');
+      playPhaseChangeSound();
       const tempoB = intervalos[currentInterval].tempoB;
       return tempoB.minutos * 60 + tempoB.segundos;
     } else if (currentPhase === 'tempoB') {
@@ -55,17 +59,20 @@ export const useAdvancedIntervalTimer = () => {
       if (currentInterval < intervalos.length - 1) {
         setCurrentInterval(prev => prev + 1);
         setCurrentPhase('tempoA');
+        playPhaseChangeSound();
         const tempoA = intervalos[currentInterval + 1].tempoA;
         return tempoA.minutos * 60 + tempoA.segundos;
       } else if (currentRound < rounds) {
         setCurrentRound(prev => prev + 1);
         setCurrentInterval(0);
         setCurrentPhase('tempoA');
+        playPhaseChangeSound();
         const tempoA = intervalos[0].tempoA;
         return tempoA.minutos * 60 + tempoA.segundos;
       } else {
         // Fim do treino
         setIsRunning(false);
+        playEndSound();
         return 0;
       }
     }
@@ -80,9 +87,13 @@ export const useAdvancedIntervalTimer = () => {
       setCurrentInterval(0);
     }
     setIsRunning(true);
+    playStartSound();
   };
 
-  const pause = () => setIsRunning(false);
+  const pause = () => {
+    setIsRunning(false);
+    playEndSound();
+  };
 
   const reset = () => {
     setIsRunning(false);

@@ -1,5 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
+import { useTimerSound } from './useTimerSound';
 
 export const useCountdown = () => {
   const [time, setTime] = useState(0);
@@ -8,6 +9,7 @@ export const useCountdown = () => {
   const [minutes, setMinutes] = useState(5);
   const [seconds, setSeconds] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const { playStartSound, playEndSound } = useTimerSound();
 
   useEffect(() => {
     if (isRunning && time > 0) {
@@ -15,6 +17,7 @@ export const useCountdown = () => {
         setTime(prev => {
           if (prev <= 1) {
             setIsRunning(false);
+            playEndSound();
             alert('Tempo esgotado!');
             return 0;
           }
@@ -27,7 +30,7 @@ export const useCountdown = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isRunning, time]);
+  }, [isRunning, time, playEndSound]);
 
   const start = () => {
     if (time === 0) {
@@ -36,9 +39,14 @@ export const useCountdown = () => {
       setOriginalTime(totalSeconds);
     }
     setIsRunning(true);
+    playStartSound();
   };
 
-  const pause = () => setIsRunning(false);
+  const pause = () => {
+    setIsRunning(false);
+    playEndSound();
+  };
+
   const reset = () => {
     setIsRunning(false);
     setTime(0);
