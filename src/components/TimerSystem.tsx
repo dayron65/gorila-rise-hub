@@ -20,9 +20,11 @@ const TimerSystem = () => {
   const [countdownSeconds, setCountdownSeconds] = useState(0);
   
   // Timer de intervalo
-  const [intervalWorkTime, setIntervalWorkTime] = useState(30);
-  const [intervalRestTime, setIntervalRestTime] = useState(10);
-  const [currentIntervalTime, setCurrentIntervalTime] = useState(30);
+  const [intervalWorkMinutes, setIntervalWorkMinutes] = useState(1);
+  const [intervalWorkSeconds, setIntervalWorkSeconds] = useState(30);
+  const [intervalRestMinutes, setIntervalRestMinutes] = useState(0);
+  const [intervalRestSeconds, setIntervalRestSeconds] = useState(30);
+  const [currentIntervalTime, setCurrentIntervalTime] = useState(10);
   const [isIntervalRunning, setIsIntervalRunning] = useState(false);
   const [isWorkPhase, setIsWorkPhase] = useState(true);
   const [intervalRound, setIntervalRound] = useState(1);
@@ -84,11 +86,11 @@ const TimerSystem = () => {
           if (prev <= 1) {
             if (isWorkPhase) {
               setIsWorkPhase(false);
-              return intervalRestTime;
+              return intervalRestMinutes * 60 + intervalRestSeconds;
             } else {
               setIsWorkPhase(true);
               setIntervalRound(round => round + 1);
-              return intervalWorkTime;
+              return intervalWorkMinutes * 60 + intervalWorkSeconds;
             }
           }
           return prev - 1;
@@ -100,7 +102,7 @@ const TimerSystem = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isIntervalRunning, currentIntervalTime, isWorkPhase, intervalWorkTime, intervalRestTime]);
+  }, [isIntervalRunning, currentIntervalTime, isWorkPhase, intervalWorkMinutes, intervalWorkSeconds, intervalRestMinutes, intervalRestSeconds]);
 
   const startStopwatch = () => setIsStopwatchRunning(true);
   const pauseStopwatch = () => setIsStopwatchRunning(false);
@@ -126,7 +128,7 @@ const TimerSystem = () => {
 
   const startInterval = () => {
     if (!isIntervalRunning) {
-      setCurrentIntervalTime(intervalWorkTime);
+      setCurrentIntervalTime(10); // Inicia com 10 segundos
       setIsWorkPhase(true);
       setIntervalRound(1);
     }
@@ -136,7 +138,7 @@ const TimerSystem = () => {
   const pauseInterval = () => setIsIntervalRunning(false);
   const resetInterval = () => {
     setIsIntervalRunning(false);
-    setCurrentIntervalTime(intervalWorkTime);
+    setCurrentIntervalTime(10); // Reseta para 10 segundos
     setIsWorkPhase(true);
     setIntervalRound(1);
   };
@@ -252,7 +254,7 @@ const TimerSystem = () => {
                 <span className={`text-lg font-semibold px-3 py-1 rounded ${
                   isWorkPhase ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'
                 }`}>
-                  {isWorkPhase ? 'TREINO' : 'DESCANSO'}
+                  {isWorkPhase ? 'TEMPO A' : 'TEMPO B'}
                 </span>
               </div>
               <div className="text-6xl font-mono font-bold text-gorila-primary mb-2">
@@ -262,28 +264,65 @@ const TimerSystem = () => {
                 Round {intervalRound}
               </div>
               
-              <div className="grid grid-cols-2 gap-4 max-w-xs mx-auto mb-4">
+              <div className="space-y-4 max-w-md mx-auto mb-4">
                 <div>
-                  <Label htmlFor="workTime">Treino (seg)</Label>
-                  <Input
-                    id="workTime"
-                    type="number"
-                    value={intervalWorkTime}
-                    onChange={(e) => setIntervalWorkTime(Number(e.target.value))}
-                    disabled={isIntervalRunning}
-                    min="1"
-                  />
+                  <Label className="text-sm font-semibold text-green-800 mb-2 block">TEMPO A (Treino)</Label>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <Label htmlFor="workMinutes" className="text-xs">Minutos</Label>
+                      <Input
+                        id="workMinutes"
+                        type="number"
+                        value={intervalWorkMinutes}
+                        onChange={(e) => setIntervalWorkMinutes(Number(e.target.value))}
+                        disabled={isIntervalRunning}
+                        min="0"
+                        max="59"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="workSeconds" className="text-xs">Segundos</Label>
+                      <Input
+                        id="workSeconds"
+                        type="number"
+                        value={intervalWorkSeconds}
+                        onChange={(e) => setIntervalWorkSeconds(Number(e.target.value))}
+                        disabled={isIntervalRunning}
+                        min="0"
+                        max="59"
+                      />
+                    </div>
+                  </div>
                 </div>
+                
                 <div>
-                  <Label htmlFor="restTime">Descanso (seg)</Label>
-                  <Input
-                    id="restTime"
-                    type="number"
-                    value={intervalRestTime}
-                    onChange={(e) => setIntervalRestTime(Number(e.target.value))}
-                    disabled={isIntervalRunning}
-                    min="1"
-                  />
+                  <Label className="text-sm font-semibold text-blue-800 mb-2 block">TEMPO B (Descanso)</Label>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <Label htmlFor="restMinutes" className="text-xs">Minutos</Label>
+                      <Input
+                        id="restMinutes"
+                        type="number"
+                        value={intervalRestMinutes}
+                        onChange={(e) => setIntervalRestMinutes(Number(e.target.value))}
+                        disabled={isIntervalRunning}
+                        min="0"
+                        max="59"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="restSeconds" className="text-xs">Segundos</Label>
+                      <Input
+                        id="restSeconds"
+                        type="number"
+                        value={intervalRestSeconds}
+                        onChange={(e) => setIntervalRestSeconds(Number(e.target.value))}
+                        disabled={isIntervalRunning}
+                        min="0"
+                        max="59"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
               
