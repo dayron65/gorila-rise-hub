@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, User, LogOut } from 'lucide-react';
+import { Menu, X, User, LogOut, ChevronDown } from 'lucide-react';
 import GorilaRiseLogo from '@/components/GorilaRiseLogo';
 import TestModal from '@/components/TestModal';
 
@@ -14,6 +14,7 @@ interface HeaderProps {
 
 const Header = ({ isLoggedIn = false, userName, onLogout }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -44,6 +45,36 @@ const Header = ({ isLoggedIn = false, userName, onLogout }: HeaderProps) => {
             <Link to="/clube-vantagens" className="hover:text-gorila-yellow transition-colors">
               Clube de Vantagens
             </Link>
+            <div className="relative">
+              <button
+                className="flex items-center hover:text-gorila-yellow transition-colors"
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+              >
+                Serviços
+                <ChevronDown size={16} className="ml-1" />
+              </button>
+              {isServicesOpen && (
+                <div
+                  className="absolute top-full left-0 bg-white text-gorila-primary shadow-lg rounded-lg py-2 w-48 z-50"
+                  onMouseEnter={() => setIsServicesOpen(true)}
+                  onMouseLeave={() => setIsServicesOpen(false)}
+                >
+                  <Link to="/prescricao-dieta" className="block px-4 py-2 hover:bg-gray-100 transition-colors">
+                    Prescrição de Dieta
+                  </Link>
+                  <Link to="/assinatura" className="block px-4 py-2 hover:bg-gray-100 transition-colors">
+                    Planos de Assinatura
+                  </Link>
+                  <Link to="/exercicios" className="block px-4 py-2 hover:bg-gray-100 transition-colors">
+                    Banco de Exercícios
+                  </Link>
+                  <Link to="/drills" className="block px-4 py-2 hover:bg-gray-100 transition-colors">
+                    Drills Esportivos
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link to="/institucional" className="hover:text-gorila-yellow transition-colors">
               Institucional
             </Link>
@@ -107,6 +138,36 @@ const Header = ({ isLoggedIn = false, userName, onLogout }: HeaderProps) => {
               >
                 Clube de Vantagens
               </Link>
+              <div className="pl-4 space-y-2 border-l-2 border-gorila-yellow">
+                <Link
+                  to="/prescricao-dieta"
+                  className="block hover:text-gorila-yellow transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Prescrição de Dieta
+                </Link>
+                <Link
+                  to="/assinatura"
+                  className="block hover:text-gorila-yellow transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Planos de Assinatura
+                </Link>
+                <Link
+                  to="/exercicios"
+                  className="block hover:text-gorila-yellow transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Banco de Exercícios
+                </Link>
+                <Link
+                  to="/drills"
+                  className="block hover:text-gorila-yellow transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Drills Esportivos
+                </Link>
+              </div>
               <Link
                 to="/institucional"
                 className="hover:text-gorila-yellow transition-colors"

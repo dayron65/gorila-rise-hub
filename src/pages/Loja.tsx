@@ -1,10 +1,9 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ShoppingCart, Star, Shirt, Dumbbell, Book } from 'lucide-react';
+import { ShoppingCart, Star, Shirt, Book } from 'lucide-react';
 
 const Loja = () => {
   const produtos = [
@@ -16,15 +15,6 @@ const Loja = () => {
       categoria: 'Roupas',
       icon: Shirt,
       descricao: 'Camiseta 100% algodão com logo bordado'
-    },
-    {
-      id: 2,
-      nome: 'Kit Halteres 10kg',
-      preco: 189.90,
-      precoSocio: 142.43,
-      categoria: 'Equipamentos',
-      icon: Dumbbell,
-      descricao: 'Par de halteres ajustáveis até 10kg'
     },
     {
       id: 3,

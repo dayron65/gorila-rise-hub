@@ -15,7 +15,7 @@ const GorilaRiseLogo = ({ size = 'md', className = '' }: GorilaRiseLogoProps) =>
 
   return (
     <div className={`flex items-center space-x-3 ${className}`}>
-      <div className={`${sizeClasses[size]} bg-black rounded-lg p-2 shadow-sm`}>
+      <div className={`${sizeClasses[size]} rounded-lg p-2 shadow-sm`} style={{ backgroundColor: '#231f20' }}>
         <img 
           src="/lovable-uploads/b1d0c406-fb12-494e-ad8c-a0ad4760dda0.png" 
           alt="Gorila Rise Studio" 

@@ -12,6 +12,10 @@ import Loja from "./pages/Loja";
 import ClubeVantagens from "./pages/ClubeVantagens";
 import Institucional from "./pages/Institucional";
 import NotFound from "./pages/NotFound";
+import DietPrescription from "./components/DietPrescription";
+import SubscriptionSystem from "./components/SubscriptionSystem";
+import ExerciseList from "./components/ExerciseList";
+import SportsDrills from "./components/SportsDrills";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +33,10 @@ const App = () => (
           <Route path="/loja" element={<Loja />} />
           <Route path="/clube-vantagens" element={<ClubeVantagens />} />
           <Route path="/institucional" element={<Institucional />} />
+          <Route path="/prescricao-dieta" element={<DietPrescription />} />
+          <Route path="/assinatura" element={<SubscriptionSystem />} />
+          <Route path="/exercicios" element={<ExerciseList />} />
+          <Route path="/drills" element={<SportsDrills />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
