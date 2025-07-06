@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, User, LogOut } from 'lucide-react';
+import GorilaRiseLogo from '@/components/GorilaRiseLogo';
 
 interface HeaderProps {
   isLoggedIn?: boolean;
@@ -30,14 +31,8 @@ const Header = ({ isLoggedIn = false, userName, onLogout }: HeaderProps) => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gorila-yellow rounded-full flex items-center justify-center">
-              <span className="text-gorila-primary font-bold text-xl">🦍</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold">Gorila Rise</h1>
-              <p className="text-gorila-yellow text-xs">Mantenha-se forte</p>
-            </div>
+          <Link to="/" className="flex items-center">
+            <GorilaRiseLogo size="sm" className="text-white" />
           </Link>
 
           {/* Desktop Navigation */}

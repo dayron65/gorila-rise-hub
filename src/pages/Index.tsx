@@ -1,8 +1,10 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GorilaRiseLogo from '@/components/GorilaRiseLogo';
+import TestModal from '@/components/TestModal';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Trophy, Users, Dumbbell, Star, ShoppingBag, Gift, Building } from 'lucide-react';
@@ -37,9 +39,7 @@ const Index = () => {
                   Entre para o Bando
                 </Button>
               </Link>
-              <Button className="bg-gorila-secondary text-white hover:bg-gorila-dark font-bold text-lg px-8 py-3">
-                Teste
-              </Button>
+              <TestModal />
               <Link to="/login">
                 <Button variant="outline" className="border-white text-white hover:bg-white hover:text-gorila-primary font-bold text-lg px-8 py-3">
                   Já sou membro
