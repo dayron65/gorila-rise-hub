@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -39,7 +38,6 @@ const Index = () => {
                   Entre para o Bando
                 </Button>
               </Link>
-              <TestModal />
               <Link to="/login">
                 <Button variant="outline" className="border-white text-white hover:bg-white hover:text-gorila-primary font-bold text-lg px-8 py-3">
                   Já sou membro

@@ -1,7 +1,7 @@
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Trophy, Clock, Target, Zap, Dumbbell } from 'lucide-react';
+import { Trophy, Clock, Target, Zap, Dumbbell, ExternalLink } from 'lucide-react';
 
 const TestModal = () => {
   return (
@@ -127,6 +127,25 @@ const TestModal = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Inscrição */}
+          <div className="bg-gorila-yellow/10 p-6 rounded-lg text-center">
+            <h4 className="text-xl font-bold text-gorila-primary mb-4">
+              📝 FAÇA SUA INSCRIÇÃO
+            </h4>
+            <p className="text-gray-700 mb-4">
+              Inscreva-se agora para participar do processo seletivo 2025
+            </p>
+            <a 
+              href="https://forms.gle/inscricao-teste" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gorila-primary text-white px-6 py-3 rounded-lg hover:bg-gorila-dark transition-colors font-semibold"
+            >
+              Inscrever-se no Teste
+              <ExternalLink size={16} />
+            </a>
           </div>
 
           {/* Edital */}

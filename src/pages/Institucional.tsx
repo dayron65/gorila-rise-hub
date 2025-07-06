@@ -1,8 +1,10 @@
+
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Trophy, Users, Heart, FileText, Leaf, Target, Dumbbell, Medal, Zap } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Trophy, Users, Heart, FileText, Leaf, Target, Dumbbell, Medal, Zap, ExternalLink } from 'lucide-react';
 
 const Institucional = () => {
   const esportes = [
@@ -22,7 +24,7 @@ const Institucional = () => {
       descricao: 'Ring profissional com equipamentos de segurança'
     },
     {
-      nome: 'Cheers',
+      nome: 'Cheerleader',
       icon: Heart,
       descricao: 'Modalidade de torcida organizada com coreografias'
     },
@@ -100,7 +102,17 @@ const Institucional = () => {
                   <CardTitle className="text-gorila-primary">{esporte.nome}</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <p className="text-sm text-gray-600">{esporte.descricao}</p>
+                  <p className="text-sm text-gray-600 mb-4">{esporte.descricao}</p>
+                  <a 
+                    href={`https://forms.gle/inscricao-${esporte.nome.toLowerCase().replace(/\s+/g, '-')}`}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="bg-gorila-primary hover:bg-gorila-dark text-white text-sm px-4 py-2 inline-flex items-center gap-2">
+                      Inscrever-se
+                      <ExternalLink size={14} />
+                    </Button>
+                  </a>
                 </CardContent>
               </Card>
             ))}

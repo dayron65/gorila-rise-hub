@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, User, LogOut } from 'lucide-react';
 import GorilaRiseLogo from '@/components/GorilaRiseLogo';
+import TestModal from '@/components/TestModal';
 
 interface HeaderProps {
   isLoggedIn?: boolean;
@@ -46,6 +47,7 @@ const Header = ({ isLoggedIn = false, userName, onLogout }: HeaderProps) => {
             <Link to="/institucional" className="hover:text-gorila-yellow transition-colors">
               Institucional
             </Link>
+            <TestModal />
             <Link to="/cadastro" className="hover:text-gorila-yellow transition-colors">
               Entre para o Bando
             </Link>
@@ -112,6 +114,9 @@ const Header = ({ isLoggedIn = false, userName, onLogout }: HeaderProps) => {
               >
                 Institucional
               </Link>
+              <div className="py-2">
+                <TestModal />
+              </div>
               <Link
                 to="/cadastro"
                 className="hover:text-gorila-yellow transition-colors"
