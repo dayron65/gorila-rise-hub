@@ -51,7 +51,7 @@ const Institucional = () => {
   const projetos = [{
     nome: 'Ponto de Fusão',
     icon: Zap,
-    descricao: 'Promover a cultura hip-hop como ferramenta de transformação social, integrando seus quatro elementos fundamentais (DJi, MC, Breaking e Graffiti) para engajar jovens em atividades artísticas, educativas e comunitárias, reforçando identidade, crítica social e expressão criativa.',
+    descricao: 'Promover a cultura hip-hop como ferramenta de transformação social, integrando seus quatro elementos fundamentais (DJ, MC, Breaking e Graffiti) para engajar jovens em atividades artísticas, educativas e comunitárias, reforçando identidade, crítica social e expressão criativa.',
     cor: 'bg-orange-100 text-orange-600'
   }];
 
@@ -74,7 +74,6 @@ const Institucional = () => {
       <Header />
       
       <div className="container mx-auto px-4 py-8">
-        {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gorila-primary mb-4">Institucional</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -83,7 +82,6 @@ const Institucional = () => {
           </p>
         </div>
 
-        {/* Esportes Oferecidos */}
         <section className="mb-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gorila-primary mb-4">Esportes Olímpicos</h2>
@@ -109,7 +107,6 @@ const Institucional = () => {
           </div>
         </section>
 
-        {/* Projetos Culturais */}
         <section className="mb-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gorila-primary mb-4">
@@ -121,7 +118,8 @@ const Institucional = () => {
           </div>
           
           <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
-            {projetos.map((projeto, index) => <Card key={index} className="hover:shadow-lg transition-shadow">
+            {projetos.map((projeto, index) => 
+              <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
                   <div className={`w-16 h-16 ${projeto.cor} rounded-full flex items-center justify-center mx-auto mb-4`}>
                     <projeto.icon size={32} />
@@ -131,11 +129,11 @@ const Institucional = () => {
                 <CardContent className="text-center">
                   <p className="text-gray-600">{projeto.descricao}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            )}
           </div>
         </section>
 
-        {/* Estatuto e Regimento */}
         <section className="mb-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gorila-primary mb-4">
@@ -188,7 +186,6 @@ const Institucional = () => {
           </div>
         </section>
 
-        {/* Valores e Compromissos */}
         <section className="mb-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gorila-primary mb-4">
@@ -200,7 +197,8 @@ const Institucional = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {valores.map((valor, index) => <Card key={index} className="hover:shadow-lg transition-shadow">
+            {valores.map((valor, index) => 
+              <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
                   <div className="w-16 h-16 bg-gorila-yellow rounded-full flex items-center justify-center mx-auto mb-4">
                     <valor.icon className="text-gorila-primary" size={32} />
@@ -210,11 +208,11 @@ const Institucional = () => {
                 <CardContent className="text-center">
                   <p className="text-gray-600">{valor.descricao}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            )}
           </div>
         </section>
 
-        {/* Diretoria */}
         <section className="bg-gray-50 -mx-4 px-4 py-12 rounded-lg">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gorila-primary mb-4">

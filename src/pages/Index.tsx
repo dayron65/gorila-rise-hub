@@ -2,12 +2,16 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import GorilaRiseLogo from '@/components/GorilaRiseLogo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Trophy, Users, Dumbbell, Star, ShoppingBag, Gift, Building } from 'lucide-react';
+
 const Index = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  return <div className="min-h-screen bg-white">
+
+  return (
+    <div className="min-h-screen bg-white">
       <Header isLoggedIn={isLoggedIn} onLogout={() => setIsLoggedIn(false)} />
       
       {/* Hero Section */}
@@ -15,8 +19,8 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="animate-fade-in">
             <div className="mb-6">
-              <div className="w-24 h-24 bg-gorila-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-gorila-primary font-bold text-4xl">🦍</span>
+              <div className="flex justify-center mb-6">
+                <GorilaRiseLogo size="lg" />
               </div>
               <h1 className="text-5xl md:text-7xl font-bold mb-4">
                 Gorila Rise
@@ -26,13 +30,16 @@ const Index = () => {
               </p>
             </div>
             <p className="text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-          </p>
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/cadastro">
                 <Button className="bg-gorila-yellow text-gorila-primary hover:bg-yellow-400 font-bold text-lg px-8 py-3">
                   Entre para o Bando
                 </Button>
               </Link>
+              <Button className="bg-gorila-secondary text-white hover:bg-gorila-dark font-bold text-lg px-8 py-3">
+                Teste
+              </Button>
               <Link to="/login">
                 <Button variant="outline" className="border-white text-white hover:bg-white hover:text-gorila-primary font-bold text-lg px-8 py-3">
                   Já sou membro
@@ -157,6 +164,8 @@ const Index = () => {
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

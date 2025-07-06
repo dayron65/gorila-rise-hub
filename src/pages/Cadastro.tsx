@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -154,7 +153,6 @@ const Cadastro = () => {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Dados Pessoais */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-gorila-primary">Dados Pessoais</h3>
                   
@@ -214,7 +212,6 @@ const Cadastro = () => {
                   </div>
                 </div>
 
-                {/* Endereço */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-gorila-primary">Endereço</h3>
                   
@@ -251,7 +248,6 @@ const Cadastro = () => {
                   </div>
                 </div>
 
-                {/* Modalidade e Plano */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-gorila-primary">Escolha seu Treino</h3>
                   
@@ -290,7 +286,6 @@ const Cadastro = () => {
                   </div>
                 </div>
 
-                {/* Senha */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-gorila-primary">Crie sua Senha</h3>
                   
@@ -318,12 +313,11 @@ const Cadastro = () => {
                   </div>
                 </div>
 
-                {/* Termos */}
                 <div className="flex items-center space-x-2">
                   <Checkbox
                     id="termos"
                     checked={termos}
-                    onCheckedChange={setTermos}
+                    onCheckedChange={(checked) => setTermos(checked === true)}
                   />
                   <Label htmlFor="termos" className="text-sm">
                     Aceito os <Link to="/termos" className="text-gorila-primary hover:underline">termos e condições</Link> e a <Link to="/privacidade" className="text-gorila-primary hover:underline">política de privacidade</Link>

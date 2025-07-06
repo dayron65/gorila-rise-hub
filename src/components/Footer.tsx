@@ -1,15 +1,18 @@
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+
+import { MapPin, Phone, Mail, Clock, Facebook, Youtube, Instagram, Music } from 'lucide-react';
+
 const Footer = () => {
-  return <footer className="bg-gorila-primary text-white">
+  return (
+    <footer className="bg-gorila-primary text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-bold mb-4 text-gorila-yellow">Contato</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <MapPin size={18} className="text-gorila-yellow" />
-                <span>Rua: Leopoldina N:12 - Várzea Grande - MT</span>
+                <span>Rua: Leopoldina Bairro Jardim União N:12 - Várzea Grande - MT</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={18} className="text-gorila-yellow" />
@@ -37,6 +40,49 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Social Media */}
+          <div>
+            <h3 className="text-xl font-bold mb-4 text-gorila-yellow">Redes Sociais</h3>
+            <div className="space-y-3">
+              <a 
+                href="https://facebook.com/gorilarise" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 hover:text-gorila-yellow transition-colors"
+              >
+                <Facebook size={18} />
+                <span>Facebook</span>
+              </a>
+              <a 
+                href="https://youtube.com/gorilarise" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 hover:text-gorila-yellow transition-colors"
+              >
+                <Youtube size={18} />
+                <span>YouTube</span>
+              </a>
+              <a 
+                href="https://instagram.com/gorilarise" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 hover:text-gorila-yellow transition-colors"
+              >
+                <Instagram size={18} />
+                <span>Instagram</span>
+              </a>
+              <a 
+                href="https://open.spotify.com/playlist/gorilarise" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 hover:text-gorila-yellow transition-colors"
+              >
+                <Music size={18} />
+                <span>Playlist Spotify</span>
+              </a>
+            </div>
+          </div>
+
           {/* About */}
           <div>
             <h3 className="text-xl font-bold mb-4 text-gorila-yellow">Gorila Rise</h3>
@@ -50,6 +96,8 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
