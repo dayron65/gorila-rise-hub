@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 import DietPrescription from "./components/DietPrescription";
 import SubscriptionSystem from "./components/SubscriptionSystem";
 import ExerciseList from "./components/ExerciseList";
+import ListaExercicios from "./components/ListaExercicios";
 import SportsDrills from "./components/SportsDrills";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/prescricao-dieta" element={<DietPrescription />} />
           <Route path="/assinatura" element={<SubscriptionSystem />} />
           <Route path="/exercicios" element={<ExerciseList />} />
+          <Route path="/lista-exercicios" element={<ListaExercicios />} />
           <Route path="/drills" element={<SportsDrills />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

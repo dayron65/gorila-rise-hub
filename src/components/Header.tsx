@@ -14,7 +14,7 @@ interface HeaderProps {
 
 const Header = ({ isLoggedIn = false, userName, onLogout }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isSystemsOpen, setIsSystemsOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -48,26 +48,29 @@ const Header = ({ isLoggedIn = false, userName, onLogout }: HeaderProps) => {
             <div className="relative">
               <button
                 className="flex items-center hover:text-gorila-yellow transition-colors"
-                onMouseEnter={() => setIsServicesOpen(true)}
-                onMouseLeave={() => setIsServicesOpen(false)}
+                onMouseEnter={() => setIsSystemsOpen(true)}
+                onMouseLeave={() => setIsSystemsOpen(false)}
               >
-                Serviços
+                Sistemas (Adm, Professores, Alunos)
                 <ChevronDown size={16} className="ml-1" />
               </button>
-              {isServicesOpen && (
+              {isSystemsOpen && (
                 <div
-                  className="absolute top-full left-0 bg-white text-gorila-primary shadow-lg rounded-lg py-2 w-48 z-50"
-                  onMouseEnter={() => setIsServicesOpen(true)}
-                  onMouseLeave={() => setIsServicesOpen(false)}
+                  className="absolute top-full left-0 bg-white text-gorila-primary shadow-lg rounded-lg py-2 w-56 z-50"
+                  onMouseEnter={() => setIsSystemsOpen(true)}
+                  onMouseLeave={() => setIsSystemsOpen(false)}
                 >
                   <Link to="/prescricao-dieta" className="block px-4 py-2 hover:bg-gray-100 transition-colors">
                     Prescrição de Dieta
                   </Link>
                   <Link to="/assinatura" className="block px-4 py-2 hover:bg-gray-100 transition-colors">
-                    Planos de Assinatura
+                    Assinatura Online
                   </Link>
                   <Link to="/exercicios" className="block px-4 py-2 hover:bg-gray-100 transition-colors">
-                    Banco de Exercícios
+                    Banco de Dados dos Movimentos
+                  </Link>
+                  <Link to="/lista-exercicios" className="block px-4 py-2 hover:bg-gray-100 transition-colors">
+                    Lista de Exercícios
                   </Link>
                   <Link to="/drills" className="block px-4 py-2 hover:bg-gray-100 transition-colors">
                     Drills Esportivos
@@ -139,6 +142,7 @@ const Header = ({ isLoggedIn = false, userName, onLogout }: HeaderProps) => {
                 Clube de Vantagens
               </Link>
               <div className="pl-4 space-y-2 border-l-2 border-gorila-yellow">
+                <div className="text-gorila-yellow font-semibold mb-2">Sistemas</div>
                 <Link
                   to="/prescricao-dieta"
                   className="block hover:text-gorila-yellow transition-colors"
@@ -151,14 +155,21 @@ const Header = ({ isLoggedIn = false, userName, onLogout }: HeaderProps) => {
                   className="block hover:text-gorila-yellow transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Planos de Assinatura
+                  Assinatura Online
                 </Link>
                 <Link
                   to="/exercicios"
                   className="block hover:text-gorila-yellow transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Banco de Exercícios
+                  Banco de Dados dos Movimentos
+                </Link>
+                <Link
+                  to="/lista-exercicios"
+                  className="block hover:text-gorila-yellow transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Lista de Exercícios
                 </Link>
                 <Link
                   to="/drills"
