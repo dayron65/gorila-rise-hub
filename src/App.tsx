@@ -10,6 +10,7 @@ import Cadastro from "./pages/Cadastro";
 import PainelAtleta from "./pages/PainelAtleta";
 import Loja from "./pages/Loja";
 import ClubeVantagens from "./pages/ClubeVantagens";
+import FichaInscricao from "./pages/FichaInscricao";
 import Institucional from "./pages/Institucional";
 import NotFound from "./pages/NotFound";
 import DietPrescription from "./components/DietPrescription";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/painel" element={<PainelAtleta />} />
           <Route path="/loja" element={<Loja />} />
           <Route path="/clube-vantagens" element={<ClubeVantagens />} />
+          <Route path="/ficha-inscricao" element={<FichaInscricao />} />
           <Route path="/institucional" element={<Institucional />} />
           <Route path="/prescricao-dieta" element={<DietPrescription />} />
           <Route path="/assinatura" element={<SubscriptionSystem />} />

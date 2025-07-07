@@ -1,10 +1,10 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Gift, ShoppingBag, Calendar, Utensils, CreditCard, Star, GraduationCap, Heart, Shirt, Home, Gamepad2, Plane } from 'lucide-react';
+import { Gift, ShoppingBag, Calendar, Utensils, CreditCard, Star, GraduationCap, Heart, Shirt, Home, Gamepad2, Plane, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ClubeVantagens = () => {
   const beneficios = [
@@ -244,15 +244,23 @@ const ClubeVantagens = () => {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* CTA - Ficha de Inscrição */}
         <section className="mt-16 text-center bg-gorila-primary text-white py-12 rounded-lg">
-          <h2 className="text-3xl font-bold mb-4">Aproveite os Benefícios!</h2>
+          <h2 className="text-3xl font-bold mb-4">Faça Parte do Clube!</h2>
           <p className="text-xl mb-8 text-gray-300">
-            Faça login para acessar seu cartão virtual e começar a economizar
+            Preencha sua ficha de inscrição e comece a aproveitar todos os benefícios
           </p>
-          <Button className="bg-gorila-yellow text-gorila-primary hover:bg-yellow-400 font-bold text-lg px-8 py-3">
-            Acessar Minha Conta
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/ficha-inscricao">
+              <Button className="bg-gorila-yellow text-gorila-primary hover:bg-yellow-400 font-bold text-lg px-8 py-3 flex items-center space-x-2">
+                <FileText size={20} />
+                <span>Preencher Ficha de Inscrição</span>
+              </Button>
+            </Link>
+            <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gorila-primary font-bold text-lg px-8 py-3">
+              Acessar Minha Conta
+            </Button>
+          </div>
         </section>
       </div>
 

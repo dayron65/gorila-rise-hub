@@ -107,9 +107,19 @@ const Header = ({ isLoggedIn = false, userName, onLogout }: HeaderProps) => {
             ) : (
               <Button
                 onClick={handleLogin}
-                className="bg-gorila-yellow text-gorila-primary hover:bg-yellow-400 font-semibold"
+                className="bg-gorila-yellow text-gorila-primary hover:bg-yellow-400 font-semibold flex items-center space-x-2"
               >
-                Login
+                <div 
+                  className="w-6 h-6 rounded-sm flex items-center justify-center"
+                  style={{ backgroundColor: '#231f20' }}
+                >
+                  <img 
+                    src="/lovable-uploads/b1d0c406-fb12-494e-ad8c-a0ad4760dda0.png" 
+                    alt="Gorila Rise" 
+                    className="w-4 h-4 object-contain"
+                  />
+                </div>
+                <span>Login</span>
               </Button>
             )}
           </div>
@@ -218,9 +228,19 @@ const Header = ({ isLoggedIn = false, userName, onLogout }: HeaderProps) => {
                 ) : (
                   <Button
                     onClick={handleLogin}
-                    className="w-full bg-gorila-yellow text-gorila-primary hover:bg-yellow-400 font-semibold"
+                    className="w-full bg-gorila-yellow text-gorila-primary hover:bg-yellow-400 font-semibold flex items-center justify-center space-x-2"
                   >
-                    Login
+                    <div 
+                      className="w-6 h-6 rounded-sm flex items-center justify-center"
+                      style={{ backgroundColor: '#231f20' }}
+                    >
+                      <img 
+                        src="/lovable-uploads/b1d0c406-fb12-494e-ad8c-a0ad4760dda0.png" 
+                        alt="Gorila Rise" 
+                        className="w-4 h-4 object-contain"
+                      />
+                    </div>
+                    <span>Login</span>
                   </Button>
                 )}
               </div>

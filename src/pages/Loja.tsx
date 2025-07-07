@@ -1,3 +1,4 @@
+
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -29,22 +30,28 @@ const Loja = () => {
 
   const planosSocio = [
     {
-      nome: 'Bronze',
-      preco: 49.90,
+      nome: 'Mensal',
+      preco: 220.00,
       beneficios: ['Desconto de 5% na loja', 'Acesso a conteúdos exclusivos'],
       cor: 'bg-orange-400'
     },
     {
-      nome: 'Prata',
-      preco: 79.90,
+      nome: 'Semestral',
+      preco: 200.00,
       beneficios: ['Desconto de 15% na loja', 'Prioridade no agendamento', 'Workshop mensal gratuito'],
       cor: 'bg-gray-400'
     },
     {
-      nome: 'Ouro',
-      preco: 119.90,
+      nome: 'Anual',
+      preco: 190.00,
       beneficios: ['Desconto de 25% na loja', 'Assessoria nutricional', 'Todos os workshops gratuitos', 'Personal trainer 1x/mês'],
       cor: 'bg-gorila-yellow'
+    },
+    {
+      nome: '3x Semana',
+      preco: 160.00,
+      beneficios: ['6x por mês', 'Acesso limitado aos equipamentos', 'Plano flexível'],
+      cor: 'bg-blue-400'
     }
   ];
 
@@ -96,13 +103,13 @@ const Loja = () => {
         {/* Planos Sócio Torcedor */}
         <section>
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gorila-primary mb-4">Sócio Torcedor</h2>
+            <h2 className="text-3xl font-bold text-gorila-primary mb-4">Planos de Assinatura</h2>
             <p className="text-lg text-gray-600">
               Escolha seu plano e aproveite benefícios exclusivos
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {planosSocio.map((plano, index) => (
               <Card key={index} className={`hover:shadow-lg transition-shadow ${index === 2 ? 'ring-2 ring-gorila-yellow' : ''}`}>
                 <CardHeader className="text-center">
