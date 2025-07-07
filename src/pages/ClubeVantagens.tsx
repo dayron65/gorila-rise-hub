@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Gift, ShoppingBag, Calendar, Utensils, CreditCard, Star } from 'lucide-react';
+import { Gift, ShoppingBag, Calendar, Utensils, CreditCard, Star, GraduationCap, Heart, Shirt, Home, Gamepad2, Plane } from 'lucide-react';
 
 const ClubeVantagens = () => {
   const beneficios = [
@@ -29,30 +29,82 @@ const ClubeVantagens = () => {
   ];
 
   const parceiros = {
-    'Alimentação': [
-      'Restaurante Fit Life',
-      'Açaí do Atleta',
-      'Suplementos Max',
-      'Lanchonete Saudável'
-    ],
-    'Beleza e Bem-estar': [
-      'Spa Relax',
-      'Estética Corporal',
-      'Massagem Terapêutica',
-      'Clínica Dermatológica'
-    ],
-    'Serviços': [
-      'Fisioterapia Esportiva',
-      'Nutricionista Especializada',
-      'Personal Trainer',
-      'Psicólogo do Esporte'
-    ],
-    'Lazer': [
-      'Cinema Multiplex',
-      'Parque Aquático',
-      'Teatro Municipal',
-      'Shopping Center'
-    ]
+    'Educação e Artigos Escolares': {
+      icon: GraduationCap,
+      estabelecimentos: [
+        'Papelaria Escolar Central',
+        'Livraria Educacional',
+        'Material Didático Plus'
+      ]
+    },
+    'Saúde e Beleza': {
+      icon: Heart,
+      estabelecimentos: [
+        'Nutricionista Dra. Ana Silva',
+        'Psicólogo Dr. Carlos Mendes',
+        'Fisioterapeuta João Santos',
+        'Endocrinologista Dra. Maria Costa',
+        'Studio de Beleza Simone Oliveira'
+      ]
+    },
+    'Alimentação e Gastronomia': {
+      icon: Utensils,
+      estabelecimentos: [
+        'Restaurante Fit Life',
+        'Açaí do Atleta',
+        'Suplementos Max',
+        'Lanchonete Saudável'
+      ]
+    },
+    'Moda e Acessórios': {
+      icon: Shirt,
+      estabelecimentos: [
+        'Dom Felipe',
+        'Gibi Store',
+        'Boutique Fashion',
+        'Acessórios Premium'
+      ]
+    },
+    'Artigos para Casa': {
+      icon: Home,
+      estabelecimentos: [
+        'Casa & Decoração',
+        'Móveis Comfort',
+        'Utilidades Domésticas',
+        'Design de Interiores'
+      ]
+    },
+    'Entretenimento': {
+      icon: Gamepad2,
+      estabelecimentos: [
+        'Bem TV',
+        'Cinema Multiplex',
+        'Games & Diversão',
+        'Teatro Municipal'
+      ]
+    },
+    'Viagens e Turismo': {
+      icon: Plane,
+      estabelecimentos: [
+        'Agência Mundo Viagens',
+        'Hotel Pousada do Sol',
+        'Turismo Aventura',
+        'Pacotes Exclusivos'
+      ]
+    }
+  };
+
+  const getIconColor = (categoria: string) => {
+    const colors: { [key: string]: string } = {
+      'Educação e Artigos Escolares': 'text-blue-600',
+      'Saúde e Beleza': 'text-pink-600',
+      'Alimentação e Gastronomia': 'text-orange-600',
+      'Moda e Acessórios': 'text-purple-600',
+      'Artigos para Casa': 'text-green-600',
+      'Entretenimento': 'text-red-600',
+      'Viagens e Turismo': 'text-cyan-600'
+    };
+    return colors[categoria] || 'text-gorila-primary';
   };
 
   return (
@@ -66,10 +118,33 @@ const ClubeVantagens = () => {
             <Gift className="text-gorila-primary" size={40} />
           </div>
           <h1 className="text-4xl font-bold text-gorila-primary mb-4">Clube de Vantagens</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Descontos exclusivos e benefícios especiais para nossos atletas do Gorila Rise
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            O Clube de Vantagens Esporte Clube Gorila Rise é uma rede de ofertas exclusivas aos associados com benefícios em diversos segmentos e campos de atuação.
           </p>
         </div>
+
+        {/* Como Funciona */}
+        <section className="mb-16">
+          <div className="bg-gray-50 rounded-lg p-8">
+            <h2 className="text-3xl font-bold text-gorila-primary mb-6 text-center">
+              Como Funciona
+            </h2>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-lg text-gray-700 mb-6 text-center">
+                Estabelecimentos parceiros comprometem-se a garantir descontos e benefícios aos associados ECP.
+              </p>
+              
+              <div className="bg-white rounded-lg p-6 border-l-4 border-gorila-yellow">
+                <h3 className="text-xl font-semibold text-gorila-primary mb-3">Utilização</h3>
+                <p className="text-gray-700">
+                  Para obter as vantagens oferecidas pelos parceiros do Clube de Vantagens Esporte Clube Gorila Rise, 
+                  os associados deverão apresentar, no ato da compra, o cartão do associado, o que deverá ser exigido 
+                  pelos estabelecimentos comerciais.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Benefícios Principais */}
         <section className="mb-16">
@@ -145,20 +220,20 @@ const ClubeVantagens = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {Object.entries(parceiros).map(([categoria, estabelecimentos]) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {Object.entries(parceiros).map(([categoria, dados]) => (
               <Card key={categoria} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-gorila-yellow rounded-full flex items-center justify-center mb-2">
-                    <Star className="text-gorila-primary" size={24} />
+                  <div className={`w-12 h-12 bg-gorila-yellow rounded-full flex items-center justify-center mb-2`}>
+                    <dados.icon className={getIconColor(categoria)} size={24} />
                   </div>
-                  <CardTitle className="text-gorila-primary">{categoria}</CardTitle>
+                  <CardTitle className="text-gorila-primary text-lg">{categoria}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {estabelecimentos.map((estabelecimento, index) => (
+                    {dados.estabelecimentos.map((estabelecimento, index) => (
                       <li key={index} className="text-sm text-gray-600 flex items-center">
-                        <div className="w-2 h-2 bg-gorila-yellow rounded-full mr-2"></div>
+                        <div className="w-2 h-2 bg-gorila-yellow rounded-full mr-2 flex-shrink-0"></div>
                         {estabelecimento}
                       </li>
                     ))}
