@@ -31,15 +31,6 @@ const Loja = () => {
 
   const workshops = [
     {
-      id: 3,
-      nome: 'Introdução ao Esporte',
-      preco: 89.90,
-      duracao: '2 horas',
-      categoria: 'Workshops',
-      icon: Book,
-      descricao: 'Workshop introdutório para iniciantes no esporte'
-    },
-    {
       id: 4,
       nome: 'LPO - Módulo 1: Fundamentos',
       preco: 149.90,
@@ -47,15 +38,6 @@ const Loja = () => {
       categoria: 'Workshops',
       icon: Book,
       descricao: 'Levantamento de Peso Olímpico - Desenvolver mobilidade, estabilidade e padrões básicos de movimento'
-    },
-    {
-      id: 5,
-      nome: 'Introdução à Biomecânica do LPO',
-      preco: 129.90,
-      duracao: '3 horas',
-      categoria: 'Workshops',
-      icon: Book,
-      descricao: 'Princípios biomecânicos e prática do Levantamento de Peso Olímpico'
     },
     {
       id: 6,
