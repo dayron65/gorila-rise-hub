@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -6,97 +5,57 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Gift, ShoppingBag, Calendar, Utensils, CreditCard, Star, GraduationCap, Heart, Shirt, Home, Gamepad2, Plane, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const ClubeVantagens = () => {
-  const beneficios = [
-    {
-      titulo: '25% de Desconto na Loja',
-      descricao: 'Desconto especial em todos os produtos da loja oficial',
-      icon: ShoppingBag,
-      cor: 'bg-green-100 text-green-600'
-    },
-    {
-      titulo: 'Acesso Prioritário a Eventos',
-      descricao: 'Seja o primeiro a se inscrever em workshops e competições',
-      icon: Calendar,
-      cor: 'bg-blue-100 text-blue-600'
-    },
-    {
-      titulo: 'Desconto na Cozinha',
-      descricao: '15% de desconto em todos os lanches e refeições',
-      icon: Utensils,
-      cor: 'bg-orange-100 text-orange-600'
-    }
-  ];
-
+  const beneficios = [{
+    titulo: '25% de Desconto na Loja',
+    descricao: 'Desconto especial em todos os produtos da loja oficial',
+    icon: ShoppingBag,
+    cor: 'bg-green-100 text-green-600'
+  }, {
+    titulo: 'Acesso Prioritário a Eventos',
+    descricao: 'Seja o primeiro a se inscrever em workshops e competições',
+    icon: Calendar,
+    cor: 'bg-blue-100 text-blue-600'
+  }, {
+    titulo: 'Desconto na Cozinha',
+    descricao: '15% de desconto em todos os lanches e refeições',
+    icon: Utensils,
+    cor: 'bg-orange-100 text-orange-600'
+  }];
   const parceiros = {
     'Educação e Artigos Escolares': {
       icon: GraduationCap,
-      estabelecimentos: [
-        'Papelaria Escolar Central',
-        'Livraria Educacional',
-        'Material Didático Plus'
-      ]
+      estabelecimentos: ['Papelaria Escolar Central', 'Livraria Educacional', 'Material Didático Plus']
     },
     'Saúde e Beleza': {
       icon: Heart,
-      estabelecimentos: [
-        'Nutricionista',
-        'Psicólogo',
-        'Fisioterapeuta',
-        'Endocrinologista',
-        'Studio de Beleza Simone Oliveira'
-      ]
+      estabelecimentos: ['Nutricionista', 'Psicólogo', 'Fisioterapeuta', 'Endocrinologista', 'Studio de Beleza Simone Oliveira']
     },
     'Alimentação e Gastronomia': {
       icon: Utensils,
-      estabelecimentos: [
-        'Restaurante Fit Life',
-        'Açaí do Atleta',
-        'Suplementos Max',
-        'Lanchonete Saudável'
-      ]
+      estabelecimentos: ['Restaurante Fit Life', 'Açaí do Atleta', 'Suplementos Max', 'Lanchonete Saudável']
     },
     'Moda e Acessórios': {
       icon: Shirt,
-      estabelecimentos: [
-        'Dom Felipe - Artigos Masculinos',
-        'Gibi Store - Loja Streetwear (15% de desconto)',
-        'Boutique Fashion',
-        'Acessórios Premium'
-      ]
+      estabelecimentos: ['Dom Felipe - Artigos Masculinos', 'Gibi Store - Loja Streetwear (15% de desconto)', 'Boutique Fashion', 'Acessórios Premium']
     },
     'Artigos para Casa': {
       icon: Home,
-      estabelecimentos: [
-        'Casa & Decoração',
-        'Móveis Comfort',
-        'Utilidades Domésticas',
-        'Design de Interiores'
-      ]
+      estabelecimentos: ['Casa & Decoração', 'Móveis Comfort', 'Utilidades Domésticas', 'Design de Interiores']
     },
     'Entretenimento': {
       icon: Gamepad2,
-      estabelecimentos: [
-        'Bem Te Vi - 15% nas aulas de teatro (promoção não se acumula com outras promoções vigentes)',
-        'Cinema Multiplex',
-        'Games & Diversão',
-        'Teatro Municipal'
-      ]
+      estabelecimentos: ['Bem Te Vi - 15% nas aulas de teatro (promoção não se acumula com outras promoções vigentes)', 'Cinema Multiplex', 'Games & Diversão', 'Teatro Municipal']
     },
     'Viagens e Turismo': {
       icon: Plane,
-      estabelecimentos: [
-        'Agência Mundo Viagens',
-        'Hotel Pousada do Sol',
-        'Turismo Aventura',
-        'Pacotes Exclusivos'
-      ]
+      estabelecimentos: ['Agência Mundo Viagens', 'Hotel Pousada do Sol', 'Turismo Aventura', 'Pacotes Exclusivos']
     }
   };
-
   const getIconColor = (categoria: string) => {
-    const colors: { [key: string]: string } = {
+    const colors: {
+      [key: string]: string;
+    } = {
       'Educação e Artigos Escolares': 'text-blue-600',
       'Saúde e Beleza': 'text-pink-600',
       'Alimentação e Gastronomia': 'text-orange-600',
@@ -107,9 +66,7 @@ const ClubeVantagens = () => {
     };
     return colors[categoria] || 'text-gorila-primary';
   };
-
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       <Header />
       
       <div className="container mx-auto px-4 py-8">
@@ -119,9 +76,7 @@ const ClubeVantagens = () => {
             <Gift className="text-gorila-primary" size={40} />
           </div>
           <h1 className="text-4xl font-bold text-gorila-primary mb-4">Clube de Vantagens</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            O Clube de Vantagens Esporte Clube Gorila Rise é uma rede de ofertas exclusivas aos associados com benefícios em diversos segmentos e campos de atuação.
-          </p>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">O Clube de Vantagens Gorila Rise é uma rede de ofertas exclusivas aos atletas com benefícios em diversos segmentos.</p>
         </div>
 
         {/* Como Funciona */}
@@ -131,17 +86,11 @@ const ClubeVantagens = () => {
               Como Funciona
             </h2>
             <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-gray-700 mb-6 text-center">
-                Estabelecimentos parceiros comprometem-se a garantir descontos e benefícios aos associados ECP.
-              </p>
+              <p className="text-lg text-gray-700 mb-6 text-center">Estabelecimentos parceiros comprometem-se a garantir descontos e benefícios aos atletas.</p>
               
               <div className="bg-white rounded-lg p-6 border-l-4 border-gorila-yellow">
                 <h3 className="text-xl font-semibold text-gorila-primary mb-3">Utilização</h3>
-                <p className="text-gray-700">
-                  Para obter as vantagens oferecidas pelos parceiros do Clube de Vantagens Esporte Clube Gorila Rise, 
-                  os associados deverão apresentar, no ato da compra, o cartão do associado, o que deverá ser exigido 
-                  pelos estabelecimentos comerciais.
-                </p>
+                <p className="text-gray-700">Para obter as vantagens oferecidas pelos parceiros do Clube de Vantagens Gorila Rise, os atletas deverão apresentar, no ato da compra, o cartão virtual,  que deverá ser exigido pelos estabelecimentos comerciais.</p>
               </div>
             </div>
           </div>
@@ -153,8 +102,7 @@ const ClubeVantagens = () => {
             Benefícios Exclusivos
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {beneficios.map((beneficio, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+            {beneficios.map((beneficio, index) => <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
                   <div className={`w-16 h-16 ${beneficio.cor} rounded-full flex items-center justify-center mx-auto mb-4`}>
                     <beneficio.icon size={32} />
@@ -164,8 +112,7 @@ const ClubeVantagens = () => {
                 <CardContent className="text-center">
                   <p className="text-gray-600">{beneficio.descricao}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </section>
 
@@ -222,8 +169,7 @@ const ClubeVantagens = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {Object.entries(parceiros).map(([categoria, dados]) => (
-              <Card key={categoria} className="hover:shadow-lg transition-shadow">
+            {Object.entries(parceiros).map(([categoria, dados]) => <Card key={categoria} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className={`w-12 h-12 bg-gorila-yellow rounded-full flex items-center justify-center mb-2`}>
                     <dados.icon className={getIconColor(categoria)} size={24} />
@@ -232,16 +178,13 @@ const ClubeVantagens = () => {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {dados.estabelecimentos.map((estabelecimento, index) => (
-                      <li key={index} className="text-sm text-gray-600 flex items-start">
+                    {dados.estabelecimentos.map((estabelecimento, index) => <li key={index} className="text-sm text-gray-600 flex items-start">
                         <div className="w-2 h-2 bg-gorila-yellow rounded-full mr-2 flex-shrink-0 mt-2"></div>
                         <span>{estabelecimento}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </section>
 
@@ -266,8 +209,6 @@ const ClubeVantagens = () => {
       </div>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default ClubeVantagens;
