@@ -548,7 +548,7 @@ export const movementsDatabase: Movement[] = [
     categoria: 'Levantamento Terra',
     descricao: 'Exercício para panturrilhas com barra nas costas',
     equipamentos: ['Barra'],
-    dificultade: 'Intermediário',
+    dificuldade: 'Intermediário',
     musculos: ['Panturrilhas'],
     instrucoes: [
       'Posicione barra nas costas',
@@ -713,7 +713,7 @@ export const movementsDatabase: Movement[] = [
     id: 'pull-over',
     nome: 'Pull Over',
     categoria: 'Peito',
-    descricão: 'Exercício para peitoral e serrátil',
+    descricao: 'Exercício para peitoral e serrátil',
     equipamentos: ['Halter', 'Banco'],
     dificuldade: 'Intermediário',
     musculos: ['Peitoral', 'Serrátil', 'Latíssimo'],
@@ -890,7 +890,7 @@ export const movementsDatabase: Movement[] = [
       'Suba usando apenas força dos braços',
       'Desça controladamente'
     ]
-  ],
+  },
 
   // ABDÔMEN
   {
@@ -1181,7 +1181,7 @@ export const movementsDatabase: Movement[] = [
       'O peso instável trabalha estabilizadores',
       'Execute unilateral ou bilateral'
     ]
-  ],
+  },
 
   // OUTROS EXERCÍCIOS
   {
@@ -1483,7 +1483,7 @@ export const movementsDatabase: Movement[] = [
       'Passos controlados',
       'Aperto firme nos pesos'
     ]
-  ],
+  },
 
   // MOBILIDADE
   {
