@@ -41,10 +41,10 @@ const Cadastro = () => {
   ];
 
   const planos = [
-    { nome: 'Mensal', valor: 'R$ 89,90' },
-    { nome: 'Trimestral', valor: 'R$ 239,90' },
-    { nome: 'Semestral', valor: 'R$ 449,90' },
-    { nome: 'Anual', valor: 'R$ 799,90' }
+    { nome: 'Mensal', valor: 'R$ 220,00' },
+    { nome: 'Semestral', valor: 'R$ 200,00' },
+    { nome: 'Anual', valor: 'R$ 190,00' },
+    { nome: '3x Semana', valor: 'R$ 160,00' }
   ];
 
   const formatCPF = (value: string) => {
