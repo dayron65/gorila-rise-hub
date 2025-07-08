@@ -1,3 +1,4 @@
+
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -40,10 +41,10 @@ const ClubeVantagens = () => {
     'Saúde e Beleza': {
       icon: Heart,
       estabelecimentos: [
-        'Nutricionista Dra. Ana Silva',
-        'Psicólogo Dr. Carlos Mendes',
-        'Fisioterapeuta João Santos',
-        'Endocrinologista Dra. Maria Costa',
+        'Nutricionista',
+        'Psicólogo',
+        'Fisioterapeuta',
+        'Endocrinologista',
         'Studio de Beleza Simone Oliveira'
       ]
     },
@@ -59,8 +60,8 @@ const ClubeVantagens = () => {
     'Moda e Acessórios': {
       icon: Shirt,
       estabelecimentos: [
-        'Dom Felipe',
-        'Gibi Store',
+        'Dom Felipe - Artigos Masculinos',
+        'Gibi Store - Loja Streetwear (15% de desconto)',
         'Boutique Fashion',
         'Acessórios Premium'
       ]
@@ -77,7 +78,7 @@ const ClubeVantagens = () => {
     'Entretenimento': {
       icon: Gamepad2,
       estabelecimentos: [
-        'Bem TV',
+        'Bem Te Vi - 15% nas aulas de teatro (promoção não se acumula com outras promoções vigentes)',
         'Cinema Multiplex',
         'Games & Diversão',
         'Teatro Municipal'
@@ -232,9 +233,9 @@ const ClubeVantagens = () => {
                 <CardContent>
                   <ul className="space-y-2">
                     {dados.estabelecimentos.map((estabelecimento, index) => (
-                      <li key={index} className="text-sm text-gray-600 flex items-center">
-                        <div className="w-2 h-2 bg-gorila-yellow rounded-full mr-2 flex-shrink-0"></div>
-                        {estabelecimento}
+                      <li key={index} className="text-sm text-gray-600 flex items-start">
+                        <div className="w-2 h-2 bg-gorila-yellow rounded-full mr-2 flex-shrink-0 mt-2"></div>
+                        <span>{estabelecimento}</span>
                       </li>
                     ))}
                   </ul>
