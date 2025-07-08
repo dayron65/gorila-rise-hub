@@ -1369,7 +1369,7 @@ export const sportsDatabase: SportDrill[] = [
     id: 'cold-water-adaptation',
     nome: 'Cold Water Adaptation',
     esporte: 'Natação',
-    descricão: 'Nado em temperatura baixa controlada',
+    descricao: 'Nado em temperatura baixa controlada',
     duracao: '15-25 minutos',
     dificuldade: 'Avançado',
     objetivos: ['Adaptação térmica', 'Resistência'],
@@ -1670,7 +1670,7 @@ export const sportsDatabase: SportDrill[] = [
       'Correção no campo',
       'Application de adjustments'
     ]
-  ],
+  },
 
   // FUTEBOL DE CAMPO (17 drills)
   {
@@ -1743,7 +1743,7 @@ export const sportsDatabase: SportDrill[] = [
     esporte: 'Futebol de Campo',
     descricao: '6v2 em espaco delimitado com troca de posicoes',
     duracao: '20-25 minutos',
-    dificuldade: 'Avancado',
+    dificuldade: 'Avançado',
     objetivos: ['Posse de bola', 'Posicionamento tatico'],
     equipamentos: ['Cones', 'Coletes', 'Bolas'],
     instrucoes: [
