@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import GorilaRiseLogo from '@/components/GorilaRiseLogo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -131,12 +132,7 @@ const ClubeVantagens = () => {
             <Card className="bg-gradient-to-r from-gorila-primary to-gorila-dark text-white">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gorila-yellow rounded-full flex items-center justify-center">
-                      <span className="text-gorila-primary font-bold">🦍</span>
-                    </div>
-                    <span className="font-bold">Gorila Rise</span>
-                  </div>
+                  <GorilaRiseLogo size="sm" className="text-white" />
                   <CreditCard size={24} />
                 </div>
                 <div className="mb-4">
