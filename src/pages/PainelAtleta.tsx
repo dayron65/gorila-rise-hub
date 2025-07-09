@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import TimerSystem from '@/components/TimerSystem';
+import DietPrescription from '@/components/DietPrescription';
 import { 
   User, 
   FileText, 
@@ -119,11 +120,12 @@ const PainelAtleta = () => {
           {/* Main Content */}
           <div className="lg:col-span-3">
             <Tabs defaultValue="dashboard" className="space-y-6">
-              <TabsList className="grid w-full grid-cols-4">
+              <TabsList className="grid w-full grid-cols-5">
                 <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
                 <TabsTrigger value="treinos">Treinos</TabsTrigger>
                 <TabsTrigger value="progresso">Progresso</TabsTrigger>
                 <TabsTrigger value="cronometro">Cronômetro</TabsTrigger>
+                <TabsTrigger value="dieta">Dieta</TabsTrigger>
               </TabsList>
 
               <TabsContent value="dashboard" className="space-y-6">
@@ -261,6 +263,10 @@ const PainelAtleta = () => {
 
               <TabsContent value="cronometro" className="space-y-6">
                 <TimerSystem />
+              </TabsContent>
+
+              <TabsContent value="dieta" className="space-y-6">
+                <DietPrescription userName={user?.name} />
               </TabsContent>
             </Tabs>
           </div>
