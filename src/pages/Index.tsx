@@ -16,6 +16,7 @@ const Index = () => {
 
   // Eventos internos de exemplo
   const internalEvents = [
+    { date: new Date(2025, 0, 10), title: "Aula de Abertura Projeto Ponto de Fusão", type: "aula" },
     { date: new Date(2025, 0, 15), title: "Campeonato Interno de Futebol", type: "esporte" },
     { date: new Date(2025, 0, 22), title: "Workshop de Nutrição", type: "workshop" },
     { date: new Date(2025, 1, 5), title: "Torneio de Vôlei", type: "esporte" },
@@ -26,6 +27,7 @@ const Index = () => {
 
   const getEventType = (type: string) => {
     switch (type) {
+      case "aula": return "bg-orange-500";
       case "esporte": return "bg-gorila-primary";
       case "workshop": return "bg-gorila-yellow";
       case "palestra": return "bg-blue-500";
