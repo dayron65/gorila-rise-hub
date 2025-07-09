@@ -6,10 +6,44 @@ import GorilaRiseLogo from '@/components/GorilaRiseLogo';
 import TestModal from '@/components/TestModal';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Trophy, Users, Dumbbell, Star, ShoppingBag, Gift, Building } from 'lucide-react';
+import { Trophy, Users, Dumbbell, Star, ShoppingBag, Gift, Building, Calendar as CalendarIcon } from 'lucide-react';
+import { Calendar } from '@/components/ui/calendar';
+import { Badge } from '@/components/ui/badge';
 
 const Index = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
+
+  // Eventos internos de exemplo
+  const internalEvents = [
+    { date: new Date(2025, 0, 15), title: "Campeonato Interno de Futebol", type: "esporte" },
+    { date: new Date(2025, 0, 22), title: "Workshop de Nutrição", type: "workshop" },
+    { date: new Date(2025, 1, 5), title: "Torneio de Vôlei", type: "esporte" },
+    { date: new Date(2025, 1, 12), title: "Palestra sobre Saúde Mental", type: "palestra" },
+    { date: new Date(2025, 1, 19), title: "Treino Funcional em Grupo", type: "treino" },
+    { date: new Date(2025, 2, 8), title: "Festival Cultural Rise", type: "cultura" },
+  ];
+
+  const getEventType = (type: string) => {
+    switch (type) {
+      case "esporte": return "bg-gorila-primary";
+      case "workshop": return "bg-gorila-yellow";
+      case "palestra": return "bg-blue-500";
+      case "treino": return "bg-green-500";
+      case "cultura": return "bg-purple-500";
+      default: return "bg-gray-500";
+    }
+  };
+
+  const getEventsForDate = (date: Date) => {
+    return internalEvents.filter(event => 
+      event.date.toDateString() === date.toDateString()
+    );
+  };
+
+  const hasEvents = (date: Date) => {
+    return getEventsForDate(date).length > 0;
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -75,6 +109,92 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-bold text-gorila-primary mb-2">Resultados</h3>
                 <p className="text-gray-600">Métodos comprovados para alcançar seus objetivos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Events Calendar Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center text-gorila-primary mb-12">
+              Eventos Internos
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Calendar */}
+              <div className="flex justify-center">
+                <Card className="w-fit">
+                  <CardHeader className="text-center">
+                    <div className="w-16 h-16 bg-gorila-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CalendarIcon className="text-gorila-primary" size={32} />
+                    </div>
+                    <CardTitle className="text-gorila-primary">Calendário de Eventos</CardTitle>
+                    <CardDescription>Confira nossos próximos eventos e atividades</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Calendar
+                      mode="single"
+                      selected={selectedDate}
+                      onSelect={setSelectedDate}
+                      className="rounded-md border pointer-events-auto"
+                      modifiers={{
+                        hasEvents: (date) => hasEvents(date)
+                      }}
+                      modifiersClassNames={{
+                        hasEvents: "bg-gorila-yellow text-gorila-primary font-bold"
+                      }}
+                    />
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Events List */}
+              <div>
+                <h3 className="text-2xl font-bold text-gorila-primary mb-6">
+                  {selectedDate ? `Eventos de ${selectedDate.toLocaleDateString('pt-BR')}` : 'Próximos Eventos'}
+                </h3>
+                <div className="space-y-4">
+                  {selectedDate ? (
+                    getEventsForDate(selectedDate).length > 0 ? (
+                      getEventsForDate(selectedDate).map((event, index) => (
+                        <Card key={index} className="hover:shadow-md transition-shadow">
+                          <CardContent className="p-4">
+                            <div className="flex items-center space-x-3">
+                              <Badge className={`${getEventType(event.type)} text-white`}>
+                                {event.type}
+                              </Badge>
+                              <h4 className="font-semibold text-gorila-primary">{event.title}</h4>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))
+                    ) : (
+                      <p className="text-gray-500 text-center py-8">
+                        Nenhum evento programado para esta data.
+                      </p>
+                    )
+                  ) : (
+                    internalEvents.slice(0, 3).map((event, index) => (
+                      <Card key={index} className="hover:shadow-md transition-shadow">
+                        <CardContent className="p-4">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-3">
+                              <Badge className={`${getEventType(event.type)} text-white`}>
+                                {event.type}
+                              </Badge>
+                              <h4 className="font-semibold text-gorila-primary">{event.title}</h4>
+                            </div>
+                            <span className="text-sm text-gray-500">
+                              {event.date.toLocaleDateString('pt-BR')}
+                            </span>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))
+                  )}
+                </div>
               </div>
             </div>
           </div>
